@@ -2,6 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+// a 태그 일때와 Link 사용할때 차이점
+// <a href="…">대신 사용 <Link href="…">하고 이 작업을 수행한 경우 브라우저가 전체 새로 고침을 수행 한다.
+// 프로덕션 빌드에서 Link구성 요소가 브라우저의 뷰포트에 나타날 때마다 Next.js 는 백그라운드에서 연결된 페이지에 대한 코드를 자동으로 미리 가져 옵니다. (prefetching)
 
 const Home: NextPage = () => {
   return (
@@ -13,8 +17,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
+        </h1> */}
+        <h1 className="title">
+        Read{' '}
+          <Link href="/posts/first-post">
+            <a>this first-post!</a>
+          </Link>
         </h1>
 
         <p className={styles.description}>
