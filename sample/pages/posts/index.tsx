@@ -1,5 +1,9 @@
 import Image from 'next/image'
 import dogImage from '../images/dog2.png';
+const myLoader = ({ src, width, quality }) => {
+  return `http://ai.esmplus.com/${src}?w=${width}&q=${quality || 75}`
+}
+
 export default function FirstHomePost() {
   /**
    * next/image 사용시 장점
@@ -13,12 +17,12 @@ export default function FirstHomePost() {
       <h4>Static File Serving</h4>
       <img src="/images/dog1.jpg" alt="dog1" />
       <br />
-      <div>
+      <div style={{width: '100vw'}}>
         <Image
           src="/images/dog2.png"
           alt="dog2"
-          width="64"
-          height="64" />
+          width="640"
+          height="640"/>
       </div>
       <div>
         {/* <Image
@@ -26,6 +30,14 @@ export default function FirstHomePost() {
           alt="dog2"
           width="640"
           height="640" /> */}
+      </div>
+      <div>
+        <Image
+          loader={myLoader}
+          src="sdyna/SDHB/img/SDHB_000000000023846_D00.jpg"
+          alt="dog2"
+          width="640"
+          height="640" />
       </div>
     </>
   )
